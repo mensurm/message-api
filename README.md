@@ -13,6 +13,8 @@ Show Swagger UI
 `http://localhost:8080/swagger-ui.html`
 
 
+![alt text](docs/swagger.png "Swagger UI")
+
 
 
 
