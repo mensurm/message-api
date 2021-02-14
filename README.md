@@ -1,5 +1,5 @@
-# Message Application
-Simple application connecting to redis 
+# Message API
+REST API written in Spring boot exposing endpoints to write messages to redis
 
 ### Running the app
 Navigate to the root of the project
