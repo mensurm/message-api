@@ -37,10 +37,10 @@ class MessageServiceTest {
         MessageService messageService = new MessageService(messageRepositoryMock);
 
         // when
-        MessageNotFoundException exception = assertThrows(MessageNotFoundException.class, () -> {
-                messageService.getBetween(LocalDateTime.now(), LocalDateTime.now());
-            }
-            , "Exception not throw when no messages in range");
+        MessageNotFoundException exception = assertThrows(MessageNotFoundException.class,
+            () -> messageService.getBetween(LocalDateTime.now(), LocalDateTime.now())
+            , "Exception not throw when no messages in range"
+        );
 
         // then
         assertEquals("No messages found in specified range", exception.getMessage());
@@ -53,9 +53,7 @@ class MessageServiceTest {
         MessageService messageService = new MessageService(messageRepositoryMock);
 
         // when
-        MessageNotFoundException exception = assertThrows(MessageNotFoundException.class, () -> {
-                messageService.getLast();
-            }
+        MessageNotFoundException exception = assertThrows(MessageNotFoundException.class, messageService::getLast
             , "Exception not throw when no messages created");
 
         // then
