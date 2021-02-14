@@ -1,6 +1,7 @@
 package com.skf.messaging.controller;
 
 import com.skf.messaging.controller.response.ApiErrorResponse;
+import com.skf.messaging.service.MessageNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -19,6 +20,13 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> internalError(RuntimeException exc) {
         log.error(exc.getMessage());
         ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, exc.getMessage());
+        return buildResponseEntity(apiErrorResponse);
+    }
+
+    @ExceptionHandler(MessageNotFoundException.class)
+    protected ResponseEntity<Object> noMessageFound(MessageNotFoundException exc) {
+        log.error(exc.getMessage());
+        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.NOT_FOUND, exc.getMessage());
         return buildResponseEntity(apiErrorResponse);
     }
 

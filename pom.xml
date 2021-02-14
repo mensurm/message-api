@@ -11,7 +11,7 @@
   <groupId>com.skf</groupId>
   <artifactId>message-api</artifactId>
   <version>1.0.0</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <name>message-api</name>
   <description>Spring-Redis message API</description>
 
@@ -66,16 +66,11 @@
       <version>1.5.2</version>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.1</version>
       </plugin>
     </plugins>
   </build>

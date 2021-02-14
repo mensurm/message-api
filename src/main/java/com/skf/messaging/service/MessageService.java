@@ -31,6 +31,9 @@ public class MessageService {
 
     public Message getLast() {
         Set<Message> messages = messageRepository.getRange(-1, -1);
+        if (messages.isEmpty()) {
+            throw new MessageNotFoundException("No messages have been created");
+        }
         return messages.iterator().next();
     }
 
@@ -40,6 +43,9 @@ public class MessageService {
                 start.toInstant(ZoneOffset.UTC).toEpochMilli(),
                 end.toInstant(ZoneOffset.UTC).toEpochMilli()
             );
+        if (messagesInRange.isEmpty()) {
+            throw new MessageNotFoundException("No messages found in specified range");
+        }
         return new ArrayList<>(messagesInRange);
     }
 }
