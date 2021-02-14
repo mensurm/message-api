@@ -16,8 +16,8 @@ public class SwaggerConfiguration {
         return new OpenAPI()
             .components(new Components())
             .info(new Info()
-                .title("Title")
-                .description("Description"));
+                .title("Message API")
+                .description("REST API for publishing messages to redis"));
     }
 
     @Bean
@@ -25,8 +25,7 @@ public class SwaggerConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/")
-                    .setViewName("redirect:/swagger-ui.html");
+                registry.addViewController("/").setViewName("redirect:/swagger-ui.html");
             }
         };
     }
