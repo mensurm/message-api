@@ -3,8 +3,8 @@ package com.skf.messaging.controller;
 import com.skf.messaging.controller.request.MessageRequest;
 import com.skf.messaging.model.Message;
 import com.skf.messaging.service.MessageService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,15 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @Slf4j
 public class MessageController {
 
     private final MessageService messageService;
-
-    public MessageController(@Autowired MessageService messageService) {
-        this.messageService = messageService;
-    }
 
     @PostMapping("/publish")
     @ResponseBody

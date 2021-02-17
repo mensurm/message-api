@@ -23,7 +23,7 @@ class MessageServiceTest {
     private static final String TEST_KEY = "name";
     private static final String TEST_VALUE = "John Doe";
 
-    MessageRepository messageRepositoryMock;
+    private MessageRepository messageRepositoryMock;
 
     @BeforeEach
     public void setup() {
